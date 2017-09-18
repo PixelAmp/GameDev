@@ -26,7 +26,7 @@ public class camMouseLook : MonoBehaviour {
 
        
        
-        var md = new Vector2(Input.GetAxis("Look X"), Input.GetAxisRaw("Look Y")); //gets the mouse moevements
+        var md = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxisRaw("Mouse Y")); //gets the mouse moevements
         
 
 

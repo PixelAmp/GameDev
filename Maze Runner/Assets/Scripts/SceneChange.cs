@@ -12,4 +12,8 @@ public class SceneChange : MonoBehaviour
         print(("tried to switch to " + SceneName));
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CharacterController : MonoBehaviour {
 
     Rigidbody rb; //rigid body for the player character
+    public Transform PauseMenu;
 
     //public to allow speed to be changed
     public float speed = 10.0F;
@@ -18,6 +19,7 @@ public class CharacterController : MonoBehaviour {
     public float maxSpeed;
     //hold jump transform
     private Vector3 jump;
+    
 
     public AudioClip[] AudioEffect;
     public AudioSource source;
@@ -27,11 +29,12 @@ public class CharacterController : MonoBehaviour {
     void Start ()
     {
         //turns off cursor so it is not seen during gameplay
-        Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         source = GetComponent<AudioSource>();
-
+        Time.timeScale = 1;
+        PauseMenu.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void OnCollisionStay() //If object collides with something, it is grounded
@@ -74,44 +77,41 @@ public class CharacterController : MonoBehaviour {
             isGrounded = false;
         }
         
-        if (Input.GetKeyDown("escape")) //unlocks mouse after pressing escape key
+        if (Input.GetButtonUp("Pause")) //unlocks mouse after pressing escape key
         {
-            Cursor.lockState = CursorLockMode.None;
+            if(PauseMenu.gameObject.activeInHierarchy == false)
+            {
+                //if pause menu is active
+                Cursor.lockState = CursorLockMode.None;
+                PauseMenu.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+
+            else
+            {
+                //if pause menu is not active
+                Cursor.lockState = CursorLockMode.Locked;
+                PauseMenu.gameObject.SetActive(false);
+                Time.timeScale = 1;
+            }
+            
         }
 	}
 
-    
+
     void OnTriggerEnter(Collider other) //Called when object touches trigger collider
     {
         print("checkpoint");
-        if (other.gameObject.CompareTag("CP 1")) //if object has pickup tag
-        {
-            other.gameObject.SetActive(false); //deactivates object
-            gameObject.GetComponent<PlayerHealth>().checkpoint++;
-            //SetCountText(); //updates text information            
-        }
-       
-        else if (other.gameObject.CompareTag("CP 2")) //if object has pickup tag
+        if (other.gameObject.CompareTag("CP")) //if object has pickup tag
         {
             other.gameObject.SetActive(false); //deactivates object
             gameObject.GetComponent<PlayerHealth>().checkpoint++;
             //SetCountText(); //updates text information            
         }
 
-        else if (other.gameObject.CompareTag("CP 3")) //if object has pickup tag
-        {
-            other.gameObject.SetActive(false); //deactivates object
-            gameObject.GetComponent<PlayerHealth>().checkpoint++;
-            //SetCountText(); //updates text information            
-        }
-
-        else if (other.gameObject.CompareTag("CP 4")) //if object has pickup tag
-        {
-            other.gameObject.SetActive(false); //deactivates object
-            gameObject.GetComponent<PlayerHealth>().checkpoint++;
-            //SetCountText(); //updates text information            
-        }
     }
+
+
 
     private void FixedUpdate()
     {

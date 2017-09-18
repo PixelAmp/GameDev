@@ -24,3 +24,8 @@ https://www.youtube.com/watch?v=egxNXuwf0_g
 Creating a Start Menu / Main Menu in Unity 5
 https://www.youtube.com/watch?v=FrJogRBSzFo
 
+Unity 5 making a simple pause menu
+https://www.youtube.com/watch?v=PyEmRVRHWL8
+
+Unity Controller Controlled GUI Tutorial
+https://www.youtube.com/watch?v=dkduVooA9tE

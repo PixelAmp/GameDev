@@ -6,11 +6,13 @@ public class PlayerHealth : MonoBehaviour {
 
     public float maxFall = -3.49f; //sets max fall distance before respawning
     public int checkpoint = 0; //tracks respawn location
+    public Text winText;
 
     private Vector3 ReLocate = new Vector3(0, 3, 0);
 
     private void Start()
     {
+        winText.text = ""; //display nothing at first
         //scriptAccess = ReGround.GetComponent<CharacterController>();
 
     }
@@ -51,6 +53,7 @@ public class PlayerHealth : MonoBehaviour {
                 break;
             case 4:
                 ReLocate = new Vector3(0, 10, 345);
+                winText.text = "You Win!"; //display nothing at first
                 break;
 
             /* you can have any number of case statements */

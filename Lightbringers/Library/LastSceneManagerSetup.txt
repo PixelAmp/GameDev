@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Route 1.unity
+- path: Assets/Scenes/Leeside Village.unity
   isLoaded: 1
   isActive: 1

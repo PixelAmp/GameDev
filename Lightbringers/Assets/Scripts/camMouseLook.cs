@@ -18,14 +18,15 @@ public class camMouseLook : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        character = this.transform.parent.gameObject; //locks to character
+        //character = this.transform.parent.gameObject; //locks to character
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
 
        
-       
+       /*
         var md = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxisRaw("Mouse Y")); //gets the mouse moevements
         
 
@@ -37,7 +38,7 @@ public class camMouseLook : MonoBehaviour {
         mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f); //locks maximum rotation amount up and down
 
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right); //up and down (-mouseLook to invert)
-        character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up); //left and right
-
+        //character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up); //left and right
+        */
     }
 }

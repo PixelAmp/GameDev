@@ -75,7 +75,7 @@ public class CharacterController : MonoBehaviour {
             isGrounded = false;
             isGrounded = false;
         }
-
+        /*
         if (Input.GetButtonUp("Pause")) //unlocks mouse after pressing escape key
         {
             if (PauseMenu.gameObject.activeInHierarchy == false)
@@ -95,7 +95,7 @@ public class CharacterController : MonoBehaviour {
             }
 
         }
-
+        */
     }
 
 

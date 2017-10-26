@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CharacterController : MonoBehaviour {
 
     Rigidbody rb; //rigid body for the player character
+    Mesh me; //character mesh
     public Transform PauseMenu;
 
     //public to allow speed to be changed
@@ -30,6 +31,8 @@ public class CharacterController : MonoBehaviour {
     {
         //turns off cursor so it is not seen during gameplay
         rb = GetComponent<Rigidbody>();
+        me = GetComponent<Mesh>();
+        print(me);
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         source = GetComponent<AudioSource>();
         Time.timeScale = 1;
@@ -96,6 +99,9 @@ public class CharacterController : MonoBehaviour {
 
         }
         */
+
+
+
     }
 
 
